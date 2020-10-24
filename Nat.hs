@@ -19,3 +19,7 @@ instance Num Nat where
 
   negate _ = error "negate is undefined for Nat"
   
+
+digits :: Integer -> [Integer]
+digits 0 = []
+digits n = digits (n `div` 10) ++ [n `mod` 10]
