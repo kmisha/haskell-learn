@@ -23,3 +23,7 @@ instance Num Nat where
 digits :: Integer -> [Integer]
 digits 0 = []
 digits n = digits (n `div` 10) ++ [n `mod` 10]
+
+addOne :: Integer -> Integer -> Integer
+addOne y x = \y -> x + y
+
