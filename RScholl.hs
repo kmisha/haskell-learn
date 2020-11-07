@@ -1,7 +1,12 @@
 module RScholl where
 
-identity x = x   -- I combinator
-constant x y = x -- K combinator
+identity x = x      -- I combinator
+constant x y = x    -- K combinator
+s f g x = f x (g x) -- S combinator
 
-s f g x = f x (g x)
+apply f x = f x
+
+compose f g = \x -> f (g x)
+
+
 
