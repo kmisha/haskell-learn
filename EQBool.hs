@@ -20,3 +20,8 @@ instance Printable () where
 
 instance (Printable a, Printable b) => Printable (a, b) where
   toString (a, b) = "(" ++ toString a ++ "," ++ toString b ++ ")"
+
+instance Eq a => Eq [a] where
+  []     == []     = True
+  (x:xs) == (y:ys) = (x == y) && (xs == ys)
+  _      == _      = False
