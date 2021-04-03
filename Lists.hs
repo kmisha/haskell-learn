@@ -17,3 +17,17 @@ length (x: xs) = 1 + length xs
 null :: [a] -> Bool
 null [] = True
 null _  = False
+
+
+oddsOnly :: Integral a => [a] -> [a]
+oddsOnly [] = []
+oddsOnly (x: xs)
+    | odd x     = x : oddsOnly xs
+    | otherwise = oddsOnly xs
+
+
+isPalindrome :: Eq a => [a] -> Bool
+isPalindrome (x: xs)
+  | x == last xs = isPalindrome (init (tail xs))
+  | otherwise    = False
+  
