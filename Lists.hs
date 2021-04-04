@@ -48,4 +48,4 @@ squares'n'cubes :: Num a => [a] -> [a]
 squares'n'cubes = concatMap (\x -> [x^2, x^3])
 
 delAllUpper :: String -> String
-delAllUpper str = unwords (filter (\x -> not (all isUpper x)) (words str))
+delAllUpper = unwords . filter (\x -> not (all isUpper x)) . words
