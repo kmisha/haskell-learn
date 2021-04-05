@@ -52,3 +52,15 @@ delAllUpper = unwords . filter (\x -> not (all isUpper x)) . words
 
 fibStream :: [Integer]
 fibStream = 0 : 1 : zipWith (+) fibStream (tail fibStream) 
+
+data Odd = Odd Integer deriving (Eq, Show)
+
+instance Enum Odd where
+  toEnum n = (Odd (toInteger n))
+  fromEnum (Odd n) = fromInteger n
+  succ (Odd n) = (Odd (n + 2))
+  pred (Odd n) = (Odd (n - 2))
+  enumFrom = iterate succ
+  enumFromThen (Odd x) (Odd y) = map Odd [x, y ..]
+  enumFromTo (Odd x) (Odd y) = map Odd [x, x + 2 .. y]
+  enumFromThenTo (Odd x) (Odd y) (Odd z) = map Odd [x, y .. z]
