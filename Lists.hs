@@ -49,3 +49,6 @@ squares'n'cubes = concatMap (\x -> [x^2, x^3])
 
 delAllUpper :: String -> String
 delAllUpper = unwords . filter (\x -> not (all isUpper x)) . words
+
+fibStream :: [Integer]
+fibStream = 0 : 1 : zipWith (+) fibStream (tail fibStream) 
