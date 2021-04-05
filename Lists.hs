@@ -64,3 +64,9 @@ instance Enum Odd where
   enumFromThen (Odd x) (Odd y) = map Odd [x, y ..]
   enumFromTo (Odd x) (Odd y) = map Odd [x, x + 2 .. y]
   enumFromThenTo (Odd x) (Odd y) (Odd z) = map Odd [x, y .. z]
+
+coins = [2, 3, 7]
+
+change :: (Ord a, Num a) => a -> [[a]]
+change n | n == 0 = [[]]
+         | otherwise = [x : exchanged | x <- [2, 3, 7], x <= n, exchanged <- change $ n - x]
