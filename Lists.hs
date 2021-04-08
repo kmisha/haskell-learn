@@ -70,3 +70,15 @@ coins = [2, 3, 7]
 change :: (Ord a, Num a) => a -> [[a]]
 change n | n == 0 = [[]]
          | otherwise = [x : exchanged | x <- [2, 3, 7], x <= n, exchanged <- change $ n - x]
+
+findMean :: (Double, Double) -> Double
+findMean (x, y) = x / y
+
+meanList :: [Double] -> Double
+meanList =  findMean . foldr (\x (s, n) -> (s + x, n + 1) ) (0, 0)
+
+evenOnly :: [a] -> [a]
+evenOnly = reverse . fst . foldl checkOdd ([], 0) where
+  checkOdd (xs, n) x
+    | even n    = (xs, 1)
+    | otherwise = (x : xs, 0)
