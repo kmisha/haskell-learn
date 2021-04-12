@@ -82,3 +82,16 @@ evenOnly = reverse . fst . foldl checkOdd ([], 0) where
   checkOdd (xs, n) x
     | even n    = (xs, 1)
     | otherwise = (x : xs, 0)
+
+
+data Point = Point Double Double
+
+origin :: Point
+origin = Point 0.0 0.0
+
+distanceToOrigin :: Point -> Double
+distanceToOrigin (Point x y) = sqrt (x ^ 2 + y ^ 2)
+
+distance :: Point -> Point -> Double
+distance (Point xa ya) (Point xb yb) = sqrt ((xb - xa) ^ 2  + (yb - ya) ^ 2)
+
