@@ -1,5 +1,7 @@
 module Math where
 
 absolute :: Int -> Int
-absolute = undefined
+absolute n
+    | n > 0     = n
+    | otherwise = negate n
 
